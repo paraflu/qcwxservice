@@ -1,6 +1,6 @@
 import 'package:qcwxservice/qcwxservice.dart';
 
-void main() {
-  var awesome = Awesome();
-  print('awesome: ${awesome.isAwesome}');
+void main() async {
+  var api = QcApi();
+  print('awesome: ${await api.getWatchfaceList()}');
 }
