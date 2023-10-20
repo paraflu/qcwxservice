@@ -12,5 +12,12 @@ void main() async {
     test('gettoken', () async {
       expect(await service.getToken(), isNotNull);
     });
+
+    test('watchfacelist', () async {
+      final list = await service.getWatchfaceList();
+
+      expect(list, isNotNull);
+      expect(list, isNotEmpty);
+    });
   });
 }

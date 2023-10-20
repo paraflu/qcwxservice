@@ -3,7 +3,7 @@ class WathfaceData {
   String? hardwareVersion;
   String? name;
   String? preImageUrl;
-  int? price;
+  double? price;
   int? typeId;
   int? version;
   String? watchDesc;

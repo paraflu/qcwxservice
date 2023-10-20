@@ -36,7 +36,7 @@ class QcApi {
     if (response.statusCode != 200) {
       throw response.statusMessage ?? 'Response code ${response.statusCode}';
     }
-    final res = ListWatchfaceResponse.fromJson(response.data);
+    final res = ListWatchfaceResponse.fromJson(json.decode(response.data));
     return res.data!;
   }
 }
