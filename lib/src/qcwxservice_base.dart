@@ -14,9 +14,10 @@ class QcApi {
   }
 
   /// Retrieve token
-  Future<String> getToken() async {
+  Future<String> getToken({CancelToken? cancelToken}) async {
     final response = await dio.get('token/getToken?key=qcwx_android',
-        options: Options(responseType: ResponseType.json));
+        options: Options(responseType: ResponseType.json),
+        cancelToken: cancelToken);
     if (response.statusCode != 200) {
       throw response.statusMessage ?? 'Response code ${response.statusCode}';
     }
@@ -25,11 +26,11 @@ class QcApi {
   }
 
   Future<List<WathfaceData>> getWatchfaceList(
-      [String hardwareVersion = 'M78_V3.0', CancelToken? cancelToken]) async {
+      [String hardwareVersion = 'M78_V4.1', CancelToken? cancelToken]) async {
     final response = await dio.get('/device-file/list-watch-face',
         queryParameters: {'hardwareVersion': hardwareVersion},
         options: Options(
-          headers: {'token': await getToken()},
+          headers: {'token': await getToken(cancelToken: cancelToken)},
         ),
         cancelToken: cancelToken);
     if (response.statusCode != 200) {
