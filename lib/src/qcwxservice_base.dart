@@ -37,6 +37,9 @@ class QcApi {
       throw response.statusMessage ?? 'Response code ${response.statusCode}';
     }
     final res = ListWatchfaceResponse.fromJson(json.decode(response.data));
+    if (res.retCode != null && res.retCode != 0) {
+      throw Exception("${res.message ?? 'Errore generico'} (${res.retCode})");
+    }
     return res.data!;
   }
 }

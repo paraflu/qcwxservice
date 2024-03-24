@@ -1,0 +1,10 @@
+@base=https://api1.qcwxkjvip.com/qcwx/
+
+### get token
+
+GET {{base}}token/getToken?key=qcwx_android
+
+
+### get watchface list
+@hardwareVersion=M502_V1.0
+POST {{base}}device-file/list-watch-face?hardwareVersion={{hardwareVersion}}
