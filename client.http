@@ -6,5 +6,7 @@ GET {{base}}token/getToken?key=qcwx_android
 
 
 ### get watchface list
-@hardwareVersion=M502_V1.0
-POST {{base}}device-file/list-watch-face?hardwareVersion={{hardwareVersion}}
+@hardwareVersion=M311A_v1.0
+@token=15ef6eb5403406c1da0dc4a4defa2ea1
+GET {{base}}device-file/list-watch-face?hardwareVersion={{hardwareVersion}}
+token: {{token}}
